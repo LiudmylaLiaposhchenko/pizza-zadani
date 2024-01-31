@@ -13,9 +13,11 @@ const ToppingsSelect = ({ toppings: initialToppings }) => {
       sum = sum + topping.price;
     }
   }
-
   return (
-    <>
+    <><div className="vegan">
+      <p>Do you want a vegan pizza?</p>
+      <button className="vegan-btn" >YES</button>
+    </div>
       <p>Choose as many toppings as you want</p>
       <p>Selected toppings: {selectedCount}, total price: {sum.toFixed(2)} Euro</p>
 

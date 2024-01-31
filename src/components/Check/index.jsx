@@ -1,9 +1,9 @@
-import { useState } from "react";
 import './style.css';
 
-const Check = ({checked, onChange}) => {
+const Check = ({checked, onChange, disabled}) => {
+
   return (
-    <button
+    <button disabled={disabled}
       className="check"
       onClick={() => onChange(!checked)}
     >

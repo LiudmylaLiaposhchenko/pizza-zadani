@@ -1,6 +1,8 @@
 import { createRoot } from 'react-dom/client';
 import ToppingsSelect from './components/ToppingsSelect';
 import './style.css';
+import { useState } from 'react';
+import { PrefsContext } from './settings-context';
 
 const toppings = [
   {
@@ -78,16 +80,20 @@ const toppings = [
 ];
 
 const App = () => {
+  const [veganOnly , setVeganOnly] = useState(true);
+
   return (
-    <div className="container">
-      <header>
-        <div className="pizza" />
-        <h1>Build your own pizza</h1>
-      </header>
-      <main>
-        <ToppingsSelect toppings={toppings} />
-      </main>
-    </div>
+    <PrefsContext.Provider value={veganOnly}>
+      <div className="container">
+        <header>
+          <div className="pizza" />
+          <h1>Build your own pizza</h1>
+        </header>
+        <main>
+          <ToppingsSelect toppings={toppings} />
+        </main>
+      </div>
+    </PrefsContext.Provider>
   );
 };
 
